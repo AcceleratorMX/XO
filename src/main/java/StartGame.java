@@ -14,6 +14,8 @@ public class StartGame {
 
     public static Scanner input = new Scanner(System.in);
 
+
+
     public static void main(String[] args) {
 
         gameStart();
@@ -35,9 +37,13 @@ public class StartGame {
             } else if (player == zero) {
                 player = cross;
             }
+
+//            String restart = input.next();
+//            if (restart.equalsIgnoreCase("n")) {
+//                break;
+//            }
         }
         while(gameStatus == gameContinue);
-
     }
 
     public static void gameStart() {
