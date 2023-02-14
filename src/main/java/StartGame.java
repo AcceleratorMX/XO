@@ -13,7 +13,6 @@ public class StartGame {
     public static int gameContinue = 0, gameTie = 1, xWin = 3, oWin = 4;
 
     public static Scanner input = new Scanner(System.in);
-    public static boolean res = false;
 
     public static void main(String[] args) {
 
@@ -23,10 +22,12 @@ public class StartGame {
             gridAnalysis();
             printGrid();
             if (gameStatus == xWin){
-                System.out.println("Player X is a winner! \nPlay again?\"");
+                System.out.println("Player X is a winner! \nPlay again?");
+                gameStart();
             } else if (gameStatus == oWin) {
                 System.out.println("Player O is a winner! \nPlay again?");
-            } else if (gameStatus == gameTie){
+                gameStart();
+            } else if (gameStatus == gameTie) {
                 System.out.println("No winners :( \nPlay again?");
             }
             if (player == cross){
@@ -36,10 +37,6 @@ public class StartGame {
             }
         }
         while(gameStatus == gameContinue);
-
-        System.out.println();
-
-
 
     }
 
