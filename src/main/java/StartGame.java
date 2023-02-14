@@ -1,3 +1,4 @@
+import java.util.Objects;
 import java.util.Scanner;
 
 public class StartGame {
@@ -25,10 +26,8 @@ public class StartGame {
             printGrid();
             if (gameStatus == xWin){
                 System.out.println("Player X is a winner! \nPlay again?");
-                gameStart();
             } else if (gameStatus == oWin) {
                 System.out.println("Player O is a winner! \nPlay again?");
-                gameStart();
             } else if (gameStatus == gameTie) {
                 System.out.println("No winners :( \nPlay again?");
             }
@@ -37,13 +36,14 @@ public class StartGame {
             } else if (player == zero) {
                 player = cross;
             }
-
-//            String restart = input.next();
-//            if (restart.equalsIgnoreCase("n")) {
-//                break;
-//            }
         }
         while(gameStatus == gameContinue);
+
+//        System.out.print("Do you want to start the game? (y/n): ");
+//        String restart = input.next();
+//        if (restart.equalsIgnoreCase("n")) {
+//            System.exit(0);
+//        } else gameStart();
     }
 
     public static void gameStart() {
@@ -91,7 +91,7 @@ public class StartGame {
         for (int column = 0; column < columns; column++) {
             same = 0;
             for (int line = 0; line < lines; line++) {
-                if (grid[0][column] != emptyCell && grid[0][column] == grid[line][column]){
+                if (!Objects.equals(grid[0][column], emptyCell) && grid[0][column] == grid[line][column]){
                     same++;
                 }
             }
